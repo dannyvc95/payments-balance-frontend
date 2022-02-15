@@ -1,13 +1,44 @@
 import React from 'react';
-import {Button, Column, Grid, Row} from 'carbon-components-react';
+import {
+  Column,
+  Grid,
+  Row,
+} from 'carbon-components-react';
+import {SimpleBarChart} from '@carbon/charts-react';
 
 const Home = () => {
+  const chartConfig = {
+    data: [
+      {
+        group: 'Daniel',
+        value: 1000,
+      },
+    ],
+    options: {
+      title: 'Payments balance',
+      axes: {
+        left: {
+          mapsTo: 'value',
+          title: 'Pesos',
+        },
+        bottom: {
+          mapsTo: 'group',
+          title: 'Person',
+          scaleType: 'labels',
+        },
+      },
+      height: '400px',
+      width: '500px',
+      bars: {
+        width: 150,
+      },
+    },
+  };
+
   return <Grid>
     <Row>
       <Column>
-        <h1>Payments balance</h1>
-        <br />
-        <Button>Hello world!</Button>
+        <SimpleBarChart data={chartConfig.data} options={chartConfig.options} />
       </Column>
     </Row>
   </Grid>;
