@@ -1,47 +1,21 @@
 import React from 'react';
 import {
   Column,
-  Grid,
   Row,
+  Grid,
 } from 'carbon-components-react';
-import {SimpleBarChart} from '@carbon/charts-react';
+import Navigation from '../components/Navigation';
+import Home from './Home/Home';
 
-const Home = () => {
-  const chartConfig = {
-    data: [
-      {
-        group: 'Daniel',
-        value: 1000,
-      },
-    ],
-    options: {
-      title: 'Payments balance',
-      axes: {
-        left: {
-          mapsTo: 'value',
-          title: 'Pesos',
-        },
-        bottom: {
-          mapsTo: 'group',
-          title: 'Person',
-          scaleType: 'labels',
-        },
-      },
-      height: '400px',
-      width: '500px',
-      bars: {
-        width: 150,
-      },
-    },
-  };
-
+const Index = () => {
   return <Grid>
+    <Navigation />
     <Row>
       <Column>
-        <SimpleBarChart data={chartConfig.data} options={chartConfig.options} />
+        <Home />
       </Column>
     </Row>
   </Grid>;
 };
 
-export default Home;
+export default Index;
